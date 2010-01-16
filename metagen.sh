@@ -10,6 +10,15 @@ else
 	touch ~/.metagen.lock
 fi
 
+function forcedkill {
+	echo "Aborting..."
+	rm ~/.metagen.lock
+	exit 0
+}
+
+# catch SIGINT and SIGTERM, remove metagen.lock file
+trap 'forcedkill' 1 2 3 15
+
 function gen_packages_txt {
 	echo '' > PACKAGES.TXT
 	find ./salix -type f -name '*.meta' -exec cat {} \; >> PACKAGES.TXT
