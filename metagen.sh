@@ -22,6 +22,18 @@ trap 'forcedkill' 1 2 3 15
 function gen_packages_txt {
 	echo '' > PACKAGES.TXT
 	find ./salix -type f -name '*.meta' -exec cat {} \; >> PACKAGES.TXT
+
+	# Prefer the solibs packages if none is installed
+	sed -i \
+	"s/seamonkey|seamonkey-solibs/seamonkey-solibs|seamonkey/" \
+	PACKAGES.TXT
+	sed -i \
+	"s/glibc|glibc-solibs/glibc-solibs|glibc/" \
+	PACKAGES.TXT
+	sed -i \
+	"s/openssl|openssl-solibs/openssl-solibs|openssl/" \
+	PACKAGES.TXT
+
 	cat PACKAGES.TXT | gzip -9 -c - > PACKAGES.TXT.gz
 }
 
@@ -77,7 +89,10 @@ function gen_meta {
 		if [[ `echo $1 | grep "tgz$"` ]]; then
 			tar xfO $1 install/slack-desc |grep -E '[^[:space:]]*\:'|grep -v '^#' >> $LOCATION/$METAFILE
 			tar xfO $1 install/slack-desc |grep -E '[^[:space:]]*\:'|grep -v '^#' > $LOCATION/${NAME%t[glx]z}txt
-		elif [[ `echo $1 | grep "t[lx]z$"` ]]; then
+		elif [[ `echo $1 | grep "txz$"` ]]; then
+			xz -c -d $1 | tar xO install/slack-desc |grep -E '[^[:space:]]*\:'|grep -v '^#' >> $LOCATION/$METAFILE
+			xz -c -d $1 | tar xO install/slack-desc |grep -E '[^[:space:]]*\:'|grep -v '^#' > $LOCATION/${NAME%t[glx]z}txt
+		elif [[ `echo $1 | grep "tlz$"` ]]; then
 			lzma -c -d $1 | tar xO install/slack-desc |grep -E '[^[:space:]]*\:'|grep -v '^#' >> $LOCATION/$METAFILE
 			lzma -c -d $1 | tar xO install/slack-desc |grep -E '[^[:space:]]*\:'|grep -v '^#' > $LOCATION/${NAME%t[glx]z}txt
 		fi
@@ -172,7 +187,7 @@ case "$1" in
 		gen_rss
 	;;
 	*)
-		echo "$0 [pkg [file]|all|new|PACKAGESTXT|MD5|rss]"
+		echo "$0 [pkg [file]|all|new|PACKAGESTXT|md5|rss]"
 		echo "$0 [miss|provide] pattern"
 	;;
 esac
