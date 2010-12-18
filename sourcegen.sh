@@ -19,7 +19,7 @@ do
 		echo "$pkgname: ${slackdesc[9]}" >> $location/slack-desc
 		echo "SLACKBUILD NAME: $pkgname"
 		echo "SLACKBUILD LOCATION: $location"
-		files="SLKBUILD"
+		files="SLKBUILD slack-desc"
 		for i in ${source[@]}; do
 			files="$files `basename $i`"
 		done
