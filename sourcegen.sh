@@ -12,7 +12,7 @@ do
 		for i in ${source[@]}; do
 			files="$files `basename $i`"
 		done
-		echo "SLACKBUILD FILES: $files"
+		echo "SLACKBUILD FILES: $files slack-desc"
 		echo "SLACKBUILD VERSION: $pkgver"
 		if [ -f $location/build.dep ]; then
 			echo "SLACKBUILD REQUIRES: `cat $location/build.dep | head -n 1`"
