@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-for sb in $(find ./source -name 'SLKBUILD' | sort)
+for sb in $(find ./ -name 'SLKBUILD' | sort)
 do
 	unset pkgname location files pkgver readmeline line
 	location=$(dirname $sb)
@@ -16,6 +16,8 @@ do
 		echo "SLACKBUILD VERSION: $pkgver"
 		if [ -f $location/build.dep ]; then
 			echo "SLACKBUILD REQUIRES: `cat $location/build.dep | head -n 1`"
+		else
+			echo "SLACKBUILD REQUIRES:"
 		fi
 		echo "SLACKBUILD SHORT DESCRIPTION:  ${slackdesc[0]}"
 		echo
