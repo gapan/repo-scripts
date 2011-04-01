@@ -20,13 +20,19 @@ do
 		echo "SLACKBUILD NAME: $pkgname"
 		echo "SLACKBUILD LOCATION: $location"
 		files="SLKBUILD slack-desc"
-		for i in ${source[@]}; do
-			files="$files `basename $i`"
-		done
+		if [ -f $location/$pkgname.files ]; then
+			for i in `cat $location/$pkgname.files`; do
+				files="$files $i"
+			done
+		else
+			for i in ${source[@]}; do
+				files="$files `basename $i`"
+			done
+		fi
 		echo "SLACKBUILD FILES: $files"
 		echo "SLACKBUILD VERSION: $pkgver"
-		if [ -f $location/build.dep ]; then
-			echo "SLACKBUILD REQUIRES: `cat $location/build.dep | head -n 1`"
+		if [ -f $location/$pkgname.dep ]; then
+			echo "SLACKBUILD REQUIRES: `cat $location/$pkgname.dep | head -n 1`"
 		else
 			echo "SLACKBUILD REQUIRES:"
 		fi
