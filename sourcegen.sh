@@ -29,6 +29,9 @@ do
 				files="$files `basename $i`"
 			done
 		fi
+		if [ -f $location/README ]; then
+			files="$files README"
+		fi
 		echo "SLACKBUILD FILES: $files"
 		echo "SLACKBUILD VERSION: $pkgver"
 		if [ -f $location/$pkgname.dep ]; then
