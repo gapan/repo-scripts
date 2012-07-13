@@ -30,10 +30,10 @@ function gen_packages_txt {
 	# Make sure alternative packages are always specified as deps
 	# cxxlibs
 	sed -i \
-	"s/^gcc-g/cxxlibs|gcc-g/" \
+	"s/^gcc-g++/cxxlibs|gcc-g++/" \
 	PACKAGES.TXT
 	sed -i \
-	"s/,gcc-g/,cxxlibs|gcc-g/" \
+	"s/,gcc-g++/,cxxlibs|gcc-g++/" \
 	PACKAGES.TXT
 	# openssl
 	sed -i \
