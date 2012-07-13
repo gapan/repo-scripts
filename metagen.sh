@@ -23,6 +23,28 @@ function gen_packages_txt {
 	echo '' > PACKAGES.TXT
 	find ./salix -type f -name '*.meta' -exec cat {} \; >> PACKAGES.TXT
 
+	# Make sure alternative packages are always specified as deps
+	# cxxlibs
+	sed -i |
+	"s/^gcc-g/cxxlibs|gcc-g/" \
+	PACKAGES.TXT
+	sed -i |
+	"s/,gcc-g/,cxxlibs|gcc-g/" \
+	PACKAGES.TXT
+	# openssl
+	sed -i |
+	"s/^openssl,/openssl-solibs|openssl,/" \
+	PACKAGES.TXT
+	sed -i |
+	"s/,openssl,/,openssl-solibs|openssl,/" \
+	PACKAGES.TXT
+	sed -i |
+	"s/,openssl$/,openssl-solibs|openssl/" \
+	PACKAGES.TXT
+	sed -i |
+	"s/^openssl$/openssl-solibs|openssl/" \
+	PACKAGES.TXT
+
 	# Prefer the solibs packages if none is installed
 	sed -i \
 	"s/seamonkey|seamonkey-solibs/seamonkey-solibs|seamonkey/" \
