@@ -70,7 +70,7 @@ if [[ ! `diff CHECKSUMS.md5 .CHECKSUMS.md5.new` = "" ]] || [[ "$par" = "-f" ]] ;
 		else
 			CONFLICTS=""
 		fi
-		if [ -f DEPSDIR/$PKGNAME.sug ]; then
+		if [ -f $DEPSDIR/$PKGNAME.sug ]; then
 			SUGGESTS=`cat $DEPSDIR/$PKGNAME.sug`
 		else
 			SUGGESTS=""
