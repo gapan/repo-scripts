@@ -81,6 +81,10 @@ if [[ ! `diff CHECKSUMS.md5 .CHECKSUMS.md5.new` = "" ]] || [[ "$par" = "-f" ]] ;
 		fi
 	done
 
+	# add an extra empty line before every package name, just to be
+	# sure
+	sed -i "s/^PACKAGE NAME:/\nPACKAGE NAME:/" .PACKAGES.TXT.salix
+
 	# Prefer the solibs packages if none is installed
 	sed -i \
 	"s/seamonkey|seamonkey-solibs/seamonkey-solibs|seamonkey/" \
