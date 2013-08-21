@@ -4,6 +4,7 @@ VERSION='14.0'
 
 PKG='../../i486/'+VERSION+'/PACKAGES.TXT'
 SLKBUILD='../../slkbuild/'+VERSION+'/SLACKBUILDS.TXT'
+SBOEXCLUDE='SBoEXCLUDE'
 SBO='SLACKBUILDS.TXT'
 SBONEW=SBO+'.NEW'
 
@@ -20,6 +21,12 @@ for line in f:
 	if line.startswith('SLACKBUILD NAME:'):
 		pkg = line.partition('SLACKBUILD NAME:')[2].lstrip(' ').rstrip(' \n')
 		packages.append(pkg)
+f.close()
+
+f = open(SBOEXCLUDE)
+for line in f:
+	pkg = line.rstrip('\n').strip(' ')
+	packages.append(pkg)
 f.close()
 
 f = open(SBO)
