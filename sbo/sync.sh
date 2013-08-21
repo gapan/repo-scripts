@@ -3,6 +3,7 @@
 VERSION="14.0"
 
 rsync -av --delete --exclude '.sync.sh' --exclude '.sb_dupes_req' \
+	--exclude 'SBoEXCLUDE' \
 	rsync://slackbuilds.org/slackbuilds/$VERSION/ \
 	/var/www/vhosts/salix.enialis.net/pages/sbo/$VERSION
 
