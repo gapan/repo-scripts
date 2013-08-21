@@ -1,0 +1,4 @@
+These scripts should be made hidden when moved to an actual repository.
+
+sb_dupes_req --> .sb_dupes_req
+sync.sh --> .sync.sh
