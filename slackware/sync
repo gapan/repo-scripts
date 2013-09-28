@@ -1,0 +1,101 @@
+#!/bin/bash
+
+SLACKREPO="rsync://ftp5.gwdg.de/pub/linux/slackware/slackware-14.0"
+
+EXCLUDE=" arts k3b3 kdelibs3 qca-tls1 qca1 qt3 tightvnc "
+
+cd $(dirname $0)
+CWD=`pwd`
+DEPSDIR="$CWD/deps"
+
+par=$1
+
+update_packages_txt() {
+if [ -z $SUBDIR ]; then
+	rsync --no-motd -aqz --delete \
+		--exclude .sync --exclude deps \
+		--exclude isolinux --exclude kernels \
+		--exclude usb-and-pxe-installers \
+		--exclude CHECKSUMS.md5 --exclude CHECKSUMS.md5.asc \
+		--exclude PACKAGES.TXT --exclude PACKAGES.TXT.gz \
+		$SLACKREPO/ ./
+fi
+
+rsync -avz $SLACKREPO/CHECKSUMS.md5 ./.CHECKSUMS.md5.new
+
+if [ -n "$(diff CHECKSUMS.md5 .CHECKSUMS.md5.new)" ] || [[ "$par" = "-f" ]] ; then
+	rsync --no-motd -aqz ${SLACKREPO}/${SUBDIR}/PACKAGES.TXT ./.PACKAGES.TXT.new
+	echo -n "Adding dependency info to PACKAGES.TXT, this may take a while"
+	for i in `grep "PACKAGE NAME: .*t[gx]z$" .PACKAGES.TXT.new | sed "s/PACKAGE NAME: //"`; do
+		echo -n "."
+		PKGNAME=`echo $i | sed "s/\(.*\)-\(.*\)-\(.*\)-\(.*\).t[gx]z/\1/"`
+		if [ -f $DEPSDIR/$PKGNAME.dep ]; then
+			DEPS=`cat $DEPSDIR/$PKGNAME.dep`
+		else
+			DEPS=""
+		fi
+		if [ -f $DEPSDIR/$PKGNAME.con ]; then
+			CONFLICTS=`cat $DEPSDIR/$PKGNAME.con`
+		else
+			CONFLICTS=""
+		fi
+		if [ -f $DEPSDIR/$PKGNAME.sug ]; then
+			SUGGESTS=`cat $DEPSDIR/$PKGNAME.sug`
+		else
+			SUGGESTS=""
+		fi
+
+		if [[ ! $EXCLUDE =~ ".* $PKGNAME .*" ]]; then
+			sed -n -e "/^PACKAGE NAME:  $i/!d" -e '/^.\+$/{h;n}; :a /^.\+$/{H;n;ba};H;x; s/PACKAGE \(REQUIRED\|CONFLICTS\|SUGGESTS\):[^\n]\+\n//g;' -e "s@\(PACKAGE NAME:[^\n]\+\n\)\(.*PACKAGE SIZE (uncompressed):[^\n]\+\n\)@\1\2PACKAGE REQUIRED:  $DEPS\nPACKAGE CONFLICTS:  $CONFLICTS\nPACKAGE SUGGESTS:  $SUGGESTS\n@g;p;q" .PACKAGES.TXT.new >> .PACKAGES.TXT.salix
+		fi
+	done
+
+	# add an extra empty line before every package name, just to be
+	# sure
+	sed -i "s/^PACKAGE NAME:/\nPACKAGE NAME:/" .PACKAGES.TXT.salix
+
+	# Prefer the solibs packages if none is installed
+	sed -i \
+		"s/seamonkey|seamonkey-solibs/seamonkey-solibs|seamonkey/" \
+		.PACKAGES.TXT.salix
+	sed -i \
+		"s/glibc|glibc-solibs/glibc-solibs|glibc/" \
+		.PACKAGES.TXT.salix
+	sed -i \
+		"s/openssl|openssl-solibs/openssl-solibs|openssl/" \
+		.PACKAGES.TXT.salix
+
+	mv -f .PACKAGES.TXT.salix PACKAGES.TXT
+	rm -f .PACKAGES.TXT.new
+	rm -f PACKAGES.TXT.gz
+	cat PACKAGES.TXT | gzip -9 -c - > PACKAGES.TXT.gz
+	mv -f .CHECKSUMS.md5.new CHECKSUMS.md5
+	rsync --no-motd -aqz $SLACKREPO/$SUBDIR/CHECKSUMS.md5.asc ./CHECKSUMS.md5.asc
+	
+	echo ""
+else
+	rm .CHECKSUMS.md5.new
+fi
+}
+
+SUBDIR=""
+update_packages_txt
+
+[ ! -d $CWD/patches ] && mkdir $CWD/patches
+cd $CWD/patches
+SUBDIR="patches"
+update_packages_txt
+
+[ ! -d $CWD/extra ] && mkdir $CWD/extra
+cd $CWD/extra
+SUBDIR="extra"
+update_packages_txt
+
+[ ! -d $CWD/testing ] && mkdir $CWD/testing
+cd $CWD/testing
+SUBDIR="testing"
+update_packages_txt
+cd $CWD
+
+
+
