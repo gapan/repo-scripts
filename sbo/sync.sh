@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="14.0"
+VERSION="14.1"
 
 rsync -av --delete \
 	--exclude '.sync.sh' \
