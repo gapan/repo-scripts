@@ -31,7 +31,7 @@ for line in f:
 				if req in d:
 					new_reqs = new_reqs+d[req]+','
 				else:
-					new_reqs = req+','
+					new_reqs = new_reqs+req+','
 		new_reqs = new_reqs.rstrip(',')
 		fn.write('SLACKBUILD REQUIRES: '+new_reqs+'\n')
 	else:
