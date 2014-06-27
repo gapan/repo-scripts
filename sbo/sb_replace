@@ -1,0 +1,40 @@
+#!/usr/bin/env python
+
+# This script replaces mentions of SlackBuilds with a new name in the
+# REQUIRES lines. For example, it can replace all instances of
+# "configobj" with "python-configobj"
+
+VERSION='14.1'
+
+SBOREPLACE='SBoREPLACE'
+SBO='SLACKBUILDS.TXT.SBo'
+SBONEW=SBO+'.NEW'
+
+d = dict()
+f = open(SBOREPLACE)
+for line in f:
+	name, sep, new_name = line.partition(':')
+	name = name.strip(' ')
+	new_name = new_name.rstrip('\n').strip(' ')
+	d[name]=new_name
+f.close()
+
+f = open(SBO)
+fn = open(SBONEW, 'w')
+for line in f:
+	if line.startswith('SLACKBUILD REQUIRES:'):
+		reqline = line.partition('SLACKBUILD REQUIRES:')[2].lstrip(' ').rstrip(' \n')
+		reqlist = reqline.split(',')
+		new_reqs = ''
+		for req in reqlist:
+			if req != '':
+				if req in d:
+					new_reqs = new_reqs+d[req]+','
+				else:
+					new_reqs = req+','
+		new_reqs = new_reqs.rstrip(',')
+		fn.write('SLACKBUILD REQUIRES: '+new_reqs+'\n')
+	else:
+		fn.write(line)
+f.close()
+fn.close()

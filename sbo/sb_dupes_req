@@ -11,7 +11,8 @@ VERSION='14.1'
 PKG='../../i486/'+VERSION+'/PACKAGES.TXT'
 SLKBUILD='../../slkbuild/'+VERSION+'/SLACKBUILDS.TXT'
 SBOEXCLUDE='SBoEXCLUDE'
-SBO='SLACKBUILDS.TXT'
+SBOREPLACE='SBoREPLACE'
+SBO='SLACKBUILDS.TXT.SBo'
 SBONEW=SBO+'.NEW'
 
 f = open(PKG)
@@ -32,6 +33,12 @@ f.close()
 f = open(SBOEXCLUDE)
 for line in f:
 	pkg = line.rstrip('\n').strip(' ')
+	packages.append(pkg)
+f.close()
+
+f = open(SBOREPLACE)
+for line in f:
+	pkg = line.partition(':')[0].strip(' ')
 	packages.append(pkg)
 f.close()
 
@@ -56,10 +63,12 @@ for line in f:
 			freq.close()
 		except IOError:
 			print sb+': info not found'
-	if line.startswith('SLACKBUILD SHORT DESCRIPTION:'):
-		if req != '':
-			fn.write('SLACKBUILD REQUIRES: '+req+'\n')
 	if match is not True:
-			fn.write(line)
+		if line.startswith('SLACKBUILD SHORT DESCRIPTION:'):
+			if req != '':
+				fn.write('SLACKBUILD REQUIRES: '+req+'\n')
+			else:
+				fn.write('SLACKBUILD REQUIRES: \n')
+		fn.write(line)
 f.close()
 fn.close()

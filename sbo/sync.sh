@@ -2,14 +2,28 @@
 
 VERSION="14.1"
 
+DIR="/var/www/vhosts/salix.enialis.net/pages/sbo/$VERSION"
+
 rsync -av --delete \
 	--exclude '.sync.sh' \
 	--exclude 'sync.sh' \
 	--exclude '.sb_dupes_req' \
 	--exclude 'sb_dupes_req' \
 	--exclude 'SBoEXCLUDE' \
+	--exclude '.sb_adddeps' \
+	--exclude 'sb_adddeps' \
+	--exclude 'SBoADD' \
+	--exclude '.sb_replace' \
+	--exclude 'sb_replace' \
+	--exclude 'SBoREPLACE' \
+	--exclude 'SLACKBUILDS.TXT' \
+	--exclude 'SLACKBUILDS.TXT.gz' \
 	rsync://slackbuilds.org/slackbuilds/$VERSION/ \
-	/var/www/vhosts/salix.enialis.net/pages/sbo/$VERSION
+	$DIR
+
+rsync -av \
+	rsync://slackbuilds.org/slackbuilds/$VERSION/SLACKBUILDS.TXT \
+	$DIR/SLACKBUILDS.TXT.SBo
 
 # use the hidden file only when a non-hidden file is not there
 if [ -x ./sb_dupes_req ]; then
@@ -17,6 +31,19 @@ if [ -x ./sb_dupes_req ]; then
 else
 	./.sb_dupes_req
 fi
-mv SLACKBUILDS.TXT.NEW SLACKBUILDS.TXT
+mv SLACKBUILDS.TXT.SBo.NEW SLACKBUILDS.TXT.SBo
+if [ -x ./sb_adddeps ]; then
+	./sb_adddeps
+else
+	./.sb_adddeps
+fi
+mv SLACKBUILDS.TXT.SBo.NEW SLACKBUILDS.TXT.SBo
+if [ -x ./sb_replace ]; then
+	./sb_replace
+else
+	./.sb_replace
+fi
+rm -f SLACKBUILDS.TXT.SBo
+mv SLACKBUILDS.TXT.SBo.NEW SLACKBUILDS.TXT
 cat SLACKBUILDS.TXT | gzip > SLACKBUILDS.TXT.gz
 
