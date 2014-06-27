@@ -27,7 +27,7 @@
 # Licensed under the GPLv3
 #
 
-SLACKREPO="http://ftp.gwdg.de/pub/linux/slackware/slackware-13.1/"
+SLACKREPO="http://ftp.gwdg.de/pub/linux/slackware/slackware-13.37/"
 #SLACKREPO="ftp://ftp.osuosl.org/pub/slackware/slackware-13.1/"
 
 EXCLUDE=" arts k3b3 kdelibs3 qca-tls1 qca1 qt3 tightvnc "
