@@ -2,7 +2,7 @@
 
 VERSION="14.1"
 
-DIR="/var/www/vhosts/salix.enialis.net/pages/sbo/$VERSION"
+DIR="./"
 
 rsync -av --delete \
 	--exclude '.sync.sh' \
