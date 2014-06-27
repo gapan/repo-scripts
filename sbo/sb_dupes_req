@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-VERSION='14.0'
+VERSION='14.1'
 
 PKG='../../i486/'+VERSION+'/PACKAGES.TXT'
 SLKBUILD='../../slkbuild/'+VERSION+'/SLACKBUILDS.TXT'
