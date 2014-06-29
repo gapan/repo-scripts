@@ -2,3 +2,4 @@ Mako: python-mako
 configobj: python-configobj
 jdk: openjdk
 mechanize: python-mechanize
+flashplayer-plugin: flash-plugin
