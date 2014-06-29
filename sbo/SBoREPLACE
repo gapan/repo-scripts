@@ -2,4 +2,5 @@ Mako: python-mako
 configobj: python-configobj
 jdk: openjdk
 mechanize: python-mechanize
+MarkupSafe: python-markupsafe
 flashplayer-plugin: flash-plugin
