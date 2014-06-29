@@ -1,4 +1,2 @@
-These scripts should be made hidden when moved to an actual repository.
-
-sb_dupes_req --> .sb_dupes_req
-sync.sh --> .sync.sh
+These are scripts that manage syncing and updating the SBo mirror in the
+Salix repositories.
