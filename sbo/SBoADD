@@ -11,6 +11,8 @@ LucenePlusPlus: cmake
 Modules: cmake
 MyGUI: boost,cmake
 OpenAL: cmake
+OpenCAD: gcc-gfortran,boost
+OpenCASCADE: tcl,tk
 OpenSceneGraph: cmake
 OpenXcom: cmake
 Packages: cmake
@@ -235,6 +237,7 @@ pgrouting: cmake
 photoqt: cmake
 physfs: cmake
 pianobooster: cmake
+pivy: swig
 plasma-applet-daisy: cmake
 plasma-runner-browsefirefoxbookmarks: cmake
 plasma-widget-menubar: cmake
