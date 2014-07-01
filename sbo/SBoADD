@@ -12,7 +12,7 @@ Modules: cmake
 MyGUI: boost,cmake
 OpenAL: cmake
 OpenCAD: gcc-gfortran,boost
-OpenCASCADE: tcl,tk
+OpenCASCADE: tk
 OpenSceneGraph: cmake
 OpenXcom: cmake
 Packages: cmake
