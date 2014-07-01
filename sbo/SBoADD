@@ -237,7 +237,7 @@ pgrouting: cmake
 photoqt: cmake
 physfs: cmake
 pianobooster: cmake
-pivy: swig
+Pivy: swig
 plasma-applet-daisy: cmake
 plasma-runner-browsefirefoxbookmarks: cmake
 plasma-widget-menubar: cmake
