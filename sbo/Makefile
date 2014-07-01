@@ -11,6 +11,8 @@ upload:
 		SBoEXCLUDE \
 		SBoREPLACE \
 		$(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)/
+
+upload-scripts:
 	@scp -P $(SSH_PORT) sync.sh \
 		$(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)/.sync.sh
 	@scp -P $(SSH_PORT) sb_dupes_req \
@@ -20,4 +22,4 @@ upload:
 	@scp -P $(SSH_PORT) sb_replace \
 		$(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)/.sb_replace
 
-.PHONY: all upload
+.PHONY: all upload upload-scripts
