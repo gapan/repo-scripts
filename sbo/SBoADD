@@ -4,6 +4,7 @@ CEGUI: cmake
 CGAL: cmake
 FlightGear: cmake
 FreeCAD: cmake
+FreeCAD: gcc-gfortran,boost
 HotShots: cmake
 JSONObject: boost,cmake
 LDView: boost
@@ -11,11 +12,11 @@ LucenePlusPlus: cmake
 Modules: cmake
 MyGUI: boost,cmake
 OpenAL: cmake
-OpenCAD: gcc-gfortran,boost
 OpenCASCADE: tk
 OpenSceneGraph: cmake
 OpenXcom: cmake
 Packages: cmake
+Pivy: swig
 QtCurve-Gtk2: cmake
 QtCurve-KDE4: cmake
 QtGStreamer: cmake
@@ -237,7 +238,6 @@ pgrouting: cmake
 photoqt: cmake
 physfs: cmake
 pianobooster: cmake
-Pivy: swig
 plasma-applet-daisy: cmake
 plasma-runner-browsefirefoxbookmarks: cmake
 plasma-widget-menubar: cmake
