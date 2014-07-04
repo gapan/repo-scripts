@@ -246,6 +246,7 @@ podofo: cmake
 portmidi: cmake
 povray: boost
 projectM: cmake
+pygraphviz: graphviz
 pyside-tools: cmake
 pyside: cmake
 python-magick: boost
