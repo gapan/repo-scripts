@@ -338,6 +338,7 @@ wjelement: cmake
 wormblast: cmake
 x265: cmake
 xbmc: cmake
+xboxdrv-linux: boost
 xfce4-whiskermenu-plugin: cmake
 xtrkcad: cmake
 yabause: cmake
