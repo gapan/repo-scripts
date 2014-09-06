@@ -320,6 +320,7 @@ tophat: boost
 trojita: cmake
 uhd: cmake
 unvanquished: cmake
+urbanlightscape: boost
 usbmuxd: cmake
 vacuum-im: cmake
 vbam: cmake
