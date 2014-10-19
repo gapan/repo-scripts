@@ -58,6 +58,7 @@ cdemu-daemon: cmake
 cdrkit: cmake
 choqok: cmake
 chromaprint: cmake
+chromium: yasm
 clementine: cmake
 collada-dom: cmake
 compizconfig-backend-kconfig4: cmake
