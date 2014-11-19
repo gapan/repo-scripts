@@ -259,7 +259,7 @@ qhull: cmake
 qlandkartegt: cmake
 qlipper: cmake
 qmmp: cmake
-qoauth: qt
+qoauth: qca
 qstardict: cmake
 qterminal: cmake
 qtermwidget: cmake
