@@ -1,6 +1,7 @@
 Mako: python-mako
+MarkupSafe: python-markupsafe
+OpenAL: openal-soft
 configobj: python-configobj
+flashplayer-plugin: flash-plugin
 jdk: openjdk
 mechanize: python-mechanize
-MarkupSafe: python-markupsafe
-flashplayer-plugin: flash-plugin
