@@ -56,7 +56,7 @@ cantata: cmake
 cdemu-client: cmake
 cdemu-daemon: cmake
 cdrkit: cmake
-choqok: cmake
+choqok: cmake,kdelibs,automoc4,qjson,linuxdoc-tools
 chromaprint: cmake
 chromium: yasm
 clementine: cmake
