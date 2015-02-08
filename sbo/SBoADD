@@ -180,6 +180,7 @@ leechcraft: cmake
 lemonpos: cmake
 lensfun: cmake
 libalkimia: cmake
+libbonobo: linuxdoc-tools
 libcuefile: cmake
 libechonest: cmake
 libftdi1: cmake
