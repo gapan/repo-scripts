@@ -89,6 +89,7 @@ eiskaltdcpp: cmake
 encfs: boost
 eqonomize: cmake
 ettercap: cmake
+evince: gtk+3,gnome-icon-theme
 fann: cmake
 fcitx-configtool: cmake
 fcitx: cmake
