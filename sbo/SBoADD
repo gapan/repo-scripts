@@ -84,6 +84,7 @@ dolphin-emu: cmake
 doomseeker: cmake
 dustrac: cmake
 easystroke: boost
+efitools: help2man
 eigen3: cmake
 eiskaltdcpp: cmake
 encfs: boost
