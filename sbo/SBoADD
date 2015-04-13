@@ -286,6 +286,7 @@ remmina: cmake
 rsibreak: cmake
 rss-guard: cmake
 sakura: cmake
+sbsigntools: gnu-efi
 scantailor: cmake
 screengrab: cmake
 scribus: cmake
