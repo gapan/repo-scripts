@@ -120,6 +120,7 @@ glob2: boost
 gnash: boost
 gnuradio: cmake
 gplcver: cmake
+gthumb: itstool
 gtk-kde4: cmake
 gtk-qt-engine: cmake
 gzdoom: cmake
