@@ -111,6 +111,7 @@ freerdp: cmake
 frogatto: boost
 gammu: cmake
 gcdemu: cmake
+gedit: linuxdoc-tools
 gemrb: cmake
 generatorrunner: cmake
 gl2ps: cmake
