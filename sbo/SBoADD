@@ -131,7 +131,7 @@ hedgewars: cmake
 hiawatha: cmake
 homerun: cmake
 horao: cmake
-hugin: cmake
+hugin: cmake,exiv2,swig
 ibus-chewing: cmake
 ibus-qt: cmake
 ibus-sunpinyin: cmake
