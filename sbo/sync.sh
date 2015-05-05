@@ -44,6 +44,11 @@ else
 	./.sb_replace
 fi
 rm -f SLACKBUILDS.TXT.SBo
+
+# put '%README%' dependencies at the end of the REQUIRES lines
+sed -i "s/REQUIRES: \(.*\)%README%,\(.*\)/REQUIRES: \1\2,%README/" \
+	SLACKBUILDS.TXT.SBo.NEW
+
 mv SLACKBUILDS.TXT.SBo.NEW SLACKBUILDS.TXT
 cat SLACKBUILDS.TXT | gzip > SLACKBUILDS.TXT.gz
 
