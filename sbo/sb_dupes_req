@@ -64,11 +64,16 @@ for line in f:
 		except IOError:
 			print sb+': info not found'
 	if match is not True:
-		if line.startswith('SLACKBUILD SHORT DESCRIPTION:'):
-			if req != '':
-				fn.write('SLACKBUILD REQUIRES: '+req+'\n')
-			else:
-				fn.write('SLACKBUILD REQUIRES: \n')
-		fn.write(line)
+		# don't use the REQUIRES line from the original SLACKBUILDS.TXT.
+		# Create one that is comma delimited from scratch
+		if line.startswith('SLACKBUILD REQUIRES:'):
+			pass
+		else:
+			if line.startswith('SLACKBUILD SHORT DESCRIPTION:'):
+				if req != '':
+					fn.write('SLACKBUILD REQUIRES: '+req+'\n')
+				else:
+					fn.write('SLACKBUILD REQUIRES: \n')
+			fn.write(line)
 f.close()
 fn.close()
