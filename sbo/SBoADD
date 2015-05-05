@@ -203,6 +203,7 @@ lmms: cmake
 luminance-hdr: cmake
 lurc: cmake
 luxrender: cmake
+lyx: bc
 mars: cmake
 mathgl: cmake
 mcrl2: cmake
