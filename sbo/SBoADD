@@ -87,6 +87,7 @@ easystroke: boost
 efitools: help2man
 eigen3: cmake
 eiskaltdcpp: cmake
+enblend-enfuse: boost
 encfs: boost
 eqonomize: cmake
 ettercap: cmake
