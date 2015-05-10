@@ -26,6 +26,7 @@ SimGear: cmake
 SuperCollider: cmake
 TauDEM: cmake
 VTK: cmake
+WordNet: tcl,tk
 aften: cmake
 akonadi-googledata: cmake
 allegro: cmake
