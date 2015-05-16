@@ -34,6 +34,7 @@ alure: cmake
 andromeda: cmake
 apiextractor: cmake
 appmenu-qt: cmake
+apulse: cmake
 apvlv: cmake
 aqemu: cmake
 ardour: boost
