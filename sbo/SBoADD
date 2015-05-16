@@ -293,6 +293,7 @@ rss-guard: cmake
 sakura: cmake
 sbsigntools: gnu-efi
 scantailor: cmake
+schroot: boost
 screengrab: cmake
 scribus: cmake
 shake: cmake
