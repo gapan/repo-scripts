@@ -225,6 +225,7 @@ museek+: cmake
 musepack-tools: cmake
 mysql-connector-c++: cmake
 mysql-workbench: cmake
+ndg_httpsclient: pyasn1
 neovim: cmake
 netcdf: cmake
 nomacs: cmake
