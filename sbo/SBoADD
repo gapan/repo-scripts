@@ -11,6 +11,7 @@ LDView: boost
 LucenePlusPlus: cmake
 Modules: cmake
 MyGUI: boost,cmake
+ORBit2: libidl
 OpenAL: cmake
 OpenCASCADE: tk
 OpenSceneGraph: cmake
