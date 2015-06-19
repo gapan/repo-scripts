@@ -139,6 +139,7 @@ hugin: cmake,exiv2,swig
 ibus-chewing: cmake
 ibus-qt: cmake
 ibus-sunpinyin: cmake
+icecat: alsa-lib,dbus-glib,gtk+2,mozilla-nss,startup-notification,yasm
 icemon: cmake
 ike: cmake
 image-analyzer: cmake
