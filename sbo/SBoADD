@@ -232,6 +232,7 @@ neovim: cmake
 netcdf: cmake
 nomacs: cmake
 ocsync: cmake
+octave: doxygen,cmake,gcc-gfortran
 odamex: cmake
 oggvideotools: cmake
 ogre: boost,cmake
