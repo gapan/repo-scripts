@@ -353,6 +353,7 @@ wargus: cmake
 weechat: cmake
 wesnoth: cmake
 widelands: boost,cmake
+wireshark: GeoIP,gnutls,gtk+3,libcap,libgcrypt,libpcap,qt
 wjelement: cmake
 wormblast: cmake
 x265: cmake
