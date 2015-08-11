@@ -219,6 +219,7 @@ midori: cmake
 minetest: cmake
 minitube: qt
 mkvtoolnix: boost
+mlt: swig
 modules: cmake
 mosquitto: cmake
 mppenc: cmake
