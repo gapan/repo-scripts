@@ -48,6 +48,7 @@ awesome: cmake
 barry: boost
 bibletime: cmake
 bitfighter: cmake
+blas: doxygen
 blobby2: cmake
 bmpanel2: cmake
 brewtarget: cmake
