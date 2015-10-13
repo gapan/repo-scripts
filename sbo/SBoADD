@@ -63,6 +63,7 @@ cdrkit: cmake
 choqok: cmake,kdelibs,automoc4,qjson,linuxdoc-tools
 chromaprint: cmake
 chromium: yasm
+clamav: sendmail
 clementine: cmake
 collada-dom: cmake
 compizconfig-backend-kconfig4: cmake
