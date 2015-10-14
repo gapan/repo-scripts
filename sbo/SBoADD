@@ -375,3 +375,4 @@ yawp: cmake
 yoshimi: cmake
 zdbsp: cmake
 zdoom: cmake
+zenity: itstool
