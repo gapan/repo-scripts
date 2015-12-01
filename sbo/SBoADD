@@ -96,7 +96,7 @@ enblend-enfuse: boost
 encfs: boost
 eqonomize: cmake
 ettercap: cmake
-evince: gtk+3,gnome-icon-theme
+evince: gtk+3,gnome-icon-theme,gobject-introspection,itstool
 fann: cmake
 fcitx-configtool: cmake
 fcitx: cmake
