@@ -278,7 +278,7 @@ qlipper: cmake
 qmmp: cmake
 qoauth: qca
 qstardict: cmake
-qt5: alsa-lib,cups,gst-plugins-base,jasper,libiodbc,libmng,libxslt,mariadb,mtdev,pcre,sqlite,xcb-util-image,xcb-util-keysyms,xcb-util-renderutil,xcb-util-wm,xpyb
+qt5: alsa-lib,cups,gst-plugins-base,jasper,libiodbc,libmng,libxslt,mariadb,mtdev,pcre,sqlite,xcb-util-image,xcb-util-keysyms,xcb-util-renderutil,xcb-util-wm,xpyb,ruby
 qterminal: cmake
 qtermwidget: cmake
 qtkeychain: cmake
