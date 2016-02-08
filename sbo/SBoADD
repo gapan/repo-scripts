@@ -108,7 +108,7 @@ flare: cmake
 flashqard: cmake
 fluidsynth: cmake
 fmit: cmake
-fontmatrix: cmake
+fontmatrix: cmake, m17n-lib
 fpc: cmake
 fqterm: cmake
 freeminer: cmake
@@ -130,6 +130,7 @@ gplcver: cmake
 gthumb: itstool
 gtk-kde4: cmake
 gtk-qt-engine: cmake
+gtkdatabox: linuxdoc-tools
 gzdoom: cmake
 hatari: cmake
 hebe: cmake
