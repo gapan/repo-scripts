@@ -50,6 +50,7 @@ if [ -n "$(diff CHECKSUMS.md5 .CHECKSUMS.md5.new)" ] || [[ "$par" = "-f" ]] ; th
 		fi
 	done
 
+	touch .PACKAGES.TXT.salix
 	# add an extra empty line before every package name, just to be
 	# sure
 	sed -i "s/^PACKAGE NAME:/\nPACKAGE NAME:/" .PACKAGES.TXT.salix
