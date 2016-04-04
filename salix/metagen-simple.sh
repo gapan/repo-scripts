@@ -28,13 +28,6 @@ function gen_packages_txt {
 	find ./salix -type f -name '*.meta' -exec cat {} \; >> PACKAGES.TXT
 
 	# Make sure alternative packages are always specified as deps
-	# cxxlibs
-	sed -i \
-	"s/^gcc-g++/cxxlibs|gcc-g++/" \
-	PACKAGES.TXT
-	sed -i \
-	"s/,gcc-g++/,cxxlibs|gcc-g++/" \
-	PACKAGES.TXT
 	# openssl
 	sed -i \
 	"s/^openssl,/openssl-solibs|openssl,/" \
