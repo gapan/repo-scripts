@@ -269,6 +269,7 @@ pygraphviz: graphviz
 pyside-tools: cmake
 pyside: cmake
 python-magick: boost
+python-poppler-qt4: PyQt
 q4wine: cmake
 qastools: cmake
 qcomicbook: cmake
