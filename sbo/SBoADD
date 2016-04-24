@@ -374,6 +374,7 @@ yajl: cmake
 yakuake: cmake
 yaml-cpp: cmake
 yawp: cmake
+yelp: yelp-xsl
 yoshimi: cmake
 zdbsp: cmake
 zdoom: cmake
