@@ -14,7 +14,7 @@ update_packages_txt() {
 if [ -z $SUBDIR ]; then
 	rsync --no-motd -aqz --delete \
 		--exclude .sync --exclude deps \
-		--exclude isolinux --exclude kernels \
+		--exclude kernels \
 		--exclude usb-and-pxe-installers \
 		--exclude CHECKSUMS.md5 --exclude CHECKSUMS.md5.asc \
 		--exclude PACKAGES.TXT --exclude PACKAGES.TXT.gz \
