@@ -1,7 +1,7 @@
 SSH_HOST=salixos.org
 SSH_PORT=22
 SSH_USER=repo
-SSH_TARGET_DIR=/home/repo/repo/sbo/14.1
+SSH_TARGET_DIR=/home/repo/repo/sbo/14.2
 
 all: 
 	@echo "Nothing to make."
