@@ -6,3 +6,5 @@ flashplayer-plugin: flash-plugin
 jdk: openjdk
 mechanize: python-mechanize
 six: python-six
+wxGTK: wxGTK2
+wxGTK3: wxGTK
