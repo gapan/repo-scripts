@@ -46,6 +46,7 @@ avidemux: cmake
 avogadro: boost,cmake
 awesome: cmake
 barry: boost
+biblesync: cmake
 bibletime: cmake
 bitfighter: cmake
 blas: doxygen
@@ -357,6 +358,7 @@ vmpk: cmake
 wacomtablet: cmake
 wally: cmake
 wargus: cmake
+webkitgtk3: ruby
 weechat: cmake
 wesnoth: cmake
 widelands: boost,cmake
@@ -367,6 +369,7 @@ x265: cmake
 xbmc: cmake
 xboxdrv-linux: boost
 xfce4-whiskermenu-plugin: cmake
+xiphos: linuxdoc-tools
 xtrkcad: cmake
 yabause: cmake
 yagf: cmake
