@@ -86,16 +86,20 @@ update_packages_txt
 cd $CWD/patches
 SUBDIR="patches"
 update_packages_txt
+cp $CWD/GPG-KEY ./
 
 [ ! -d $CWD/extra ] && mkdir $CWD/extra
 cd $CWD/extra
 SUBDIR="extra"
 update_packages_txt
+cp $CWD/GPG-KEY ./
 
 [ ! -d $CWD/testing ] && mkdir $CWD/testing
 cd $CWD/testing
 SUBDIR="testing"
 update_packages_txt
+cp $CWD/GPG-KEY ./
+
 cd $CWD
 
 
