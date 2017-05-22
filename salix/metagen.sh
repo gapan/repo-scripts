@@ -115,6 +115,9 @@ function gen_meta {
 	echo "" >> $LOCATION/$METAFILE
 }
 
+function gen_json {
+	pkgtxt2json PACKAGES.TXT > PACKAGES.json
+}
 
 function gen_rss {
 	RSSFILE=rss-packages.xml
@@ -169,6 +172,7 @@ case "$1" in
 		done
 		#$0 PACKAGESTXT
 		gen_packages_txt
+		gen_json
 		gen_rss
 	;;
 	new)
@@ -184,6 +188,9 @@ case "$1" in
 	;;
 	PACKAGESTXT)
 		gen_packages_txt
+	;;
+	json)
+		gen_json
 	;;
 	md5)
 		echo '' > CHECKSUMS.md5
