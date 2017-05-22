@@ -17,6 +17,7 @@ if [ -z $SUBDIR ]; then
 		--exclude kernels \
 		--exclude usb-and-pxe-installers \
 		--exclude CHECKSUMS.md5 --exclude CHECKSUMS.md5.asc \
+		--exclude PACKAGES.json \
 		--exclude PACKAGES.TXT --exclude PACKAGES.TXT.gz \
 		$SLACKREPO/ ./
 fi
@@ -70,6 +71,7 @@ if [ -n "$(diff CHECKSUMS.md5 .CHECKSUMS.md5.new)" ] || [[ "$par" = "-f" ]] ; th
 	rm -f .PACKAGES.TXT.new
 	rm -f PACKAGES.TXT.gz
 	cat PACKAGES.TXT | gzip -9 -c - > PACKAGES.TXT.gz
+	pkgtxt2json PACKAGES.TXT > PACKAGES.json
 	mv -f .CHECKSUMS.md5.new CHECKSUMS.md5
 	rsync --no-motd -aqz ${SLACKREPO}/${SUBDIR}/CHECKSUMS.md5.asc ./CHECKSUMS.md5.asc
 	
