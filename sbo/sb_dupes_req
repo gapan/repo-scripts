@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# vim:et:sta:sts=4:sw=4:ts=8:tw=79:
 
 # This script checks which packages are available in the Salix
 # binary package repositories, or available in the SLKBUILD repository
@@ -18,62 +19,62 @@ SBONEW=SBO+'.NEW'
 f = open(PKG)
 packages = []
 for line in f:
-	if line.startswith('PACKAGE NAME:'):
-		pkg = line.partition('PACKAGE NAME: ')[2].lstrip(' ').rpartition('-')[0].rpartition('-')[0].rpartition('-')[0]
-		packages.append(pkg)
+    if line.startswith('PACKAGE NAME:'):
+        pkg = line.partition('PACKAGE NAME: ')[2].lstrip(' ').rpartition('-')[0].rpartition('-')[0].rpartition('-')[0]
+        packages.append(pkg)
 f.close()
 
 f = open(SLKBUILD)
 for line in f:
-	if line.startswith('SLACKBUILD NAME:'):
-		pkg = line.partition('SLACKBUILD NAME:')[2].lstrip(' ').rstrip(' \n')
-		packages.append(pkg)
+    if line.startswith('SLACKBUILD NAME:'):
+        pkg = line.partition('SLACKBUILD NAME:')[2].lstrip(' ').rstrip(' \n')
+        packages.append(pkg)
 f.close()
 
 f = open(SBOEXCLUDE)
 for line in f:
-	pkg = line.rstrip('\n').strip(' ')
-	packages.append(pkg)
+    pkg = line.rstrip('\n').strip(' ')
+    packages.append(pkg)
 f.close()
 
 f = open(SBOREPLACE)
 for line in f:
-	pkg = line.partition(':')[0].strip(' ')
-	packages.append(pkg)
+    pkg = line.partition(':')[0].strip(' ')
+    packages.append(pkg)
 f.close()
 
 f = open(SBO)
 fn = open(SBONEW, 'w')
 match = False
 for line in f:
-	if line.startswith('SLACKBUILD NAME:'):
-		req = ''
-		sb = line.partition('SLACKBUILD NAME:')[2].lstrip(' ').rstrip(' \n')
-		if sb in packages:
-			match = True
-		else:
-			match = False
-	if line.startswith('SLACKBUILD LOCATION:'):
-		location = line.partition('SLACKBUILD LOCATION:')[2].lstrip(' ').rstrip(' \n')
-		try:
-			freq = open(location+'/'+sb+'.info')
-			for freq_line in freq:
-				if freq_line.startswith('REQUIRES='):
-					req = freq_line.partition('REQUIRES="')[2].rstrip(' "\n').replace(' ',',')
-			freq.close()
-		except IOError:
-			print sb+': info not found'
-	if match is not True:
-		# don't use the REQUIRES line from the original SLACKBUILDS.TXT.
-		# Create one that is comma delimited from scratch
-		if line.startswith('SLACKBUILD REQUIRES:'):
-			pass
-		else:
-			if line.startswith('SLACKBUILD SHORT DESCRIPTION:'):
-				if req != '':
-					fn.write('SLACKBUILD REQUIRES: '+req+'\n')
-				else:
-					fn.write('SLACKBUILD REQUIRES: \n')
-			fn.write(line)
+    if line.startswith('SLACKBUILD NAME:'):
+        req = ''
+        sb = line.partition('SLACKBUILD NAME:')[2].lstrip(' ').rstrip(' \n')
+        if sb in packages:
+            match = True
+        else:
+            match = False
+    if line.startswith('SLACKBUILD LOCATION:'):
+        location = line.partition('SLACKBUILD LOCATION:')[2].lstrip(' ').rstrip(' \n')
+        try:
+            freq = open(location+'/'+sb+'.info')
+            for freq_line in freq:
+                if freq_line.startswith('REQUIRES='):
+                    req = freq_line.partition('REQUIRES="')[2].rstrip(' "\n').replace(' ',',')
+            freq.close()
+        except IOError:
+            print sb+': info not found'
+    if match is not True:
+        # don't use the REQUIRES line from the original SLACKBUILDS.TXT.
+        # Create one that is comma delimited from scratch
+        if line.startswith('SLACKBUILD REQUIRES:'):
+            pass
+        else:
+            if line.startswith('SLACKBUILD SHORT DESCRIPTION:'):
+                if req != '':
+                    fn.write('SLACKBUILD REQUIRES: '+req+'\n')
+                else:
+                    fn.write('SLACKBUILD REQUIRES: \n')
+            fn.write(line)
 f.close()
 fn.close()

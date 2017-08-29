@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# vim:et:sta:sts=4:sw=4:ts=8:tw=79:
 
 # This script adds extra dependencies to the SLACKBUILDS.TXT file, based
 # on the SBoADDEPS file.
@@ -14,33 +15,33 @@ SBONEW=SBO+'.NEW'
 d = dict()
 f = open(SBOADD)
 for line in f:
-	pkg, sep, deps = line.partition(':')
-	pkg = pkg.strip(' ')
-	deps = deps.rstrip('\n').strip(' ')
-	d[pkg]=deps
+    pkg, sep, deps = line.partition(':')
+    pkg = pkg.strip(' ')
+    deps = deps.rstrip('\n').strip(' ')
+    d[pkg]=deps
 f.close()
 
 f = open(SBO)
 fn = open(SBONEW, 'w')
 sb=''
 for line in f:
-	if line.startswith('SLACKBUILD NAME:'):
-		req = ''
-		sb = line.partition('SLACKBUILD NAME:')[2].lstrip(' ').rstrip(' \n')
-	if line.startswith('SLACKBUILD REQUIRES:'):
-		req = line.partition('SLACKBUILD REQUIRES:')[2].lstrip(' ').rstrip(' \n')
-		if req != '':
-			if sb in d:
-				newreq = req+','+d[sb]
-			else:
-				newreq = req
-		else:
-			if sb in d:
-				newreq = d[sb]
-			else:
-				newreq = ''
-		fn.write('SLACKBUILD REQUIRES: '+newreq+'\n')
-	else:
-		fn.write(line)
+    if line.startswith('SLACKBUILD NAME:'):
+        req = ''
+        sb = line.partition('SLACKBUILD NAME:')[2].lstrip(' ').rstrip(' \n')
+    if line.startswith('SLACKBUILD REQUIRES:'):
+        req = line.partition('SLACKBUILD REQUIRES:')[2].lstrip(' ').rstrip(' \n')
+        if req != '':
+            if sb in d:
+                newreq = req+','+d[sb]
+            else:
+                newreq = req
+        else:
+            if sb in d:
+                newreq = d[sb]
+            else:
+                newreq = ''
+        fn.write('SLACKBUILD REQUIRES: '+newreq+'\n')
+    else:
+        fn.write(line)
 f.close()
 fn.close()
