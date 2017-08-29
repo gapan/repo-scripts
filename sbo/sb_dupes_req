@@ -10,6 +10,7 @@
 VERSION='14.2'
 
 PKG='../../i486/'+VERSION+'/PACKAGES.TXT'
+PKGEXTRA='../../i486/extra-'+VERSION+'/PACKAGES.TXT'
 SLKBUILD='../../slkbuild/'+VERSION+'/SLACKBUILDS.TXT'
 SBOEXCLUDE='SBoEXCLUDE'
 SBOREPLACE='SBoREPLACE'
@@ -17,6 +18,14 @@ SBO='SLACKBUILDS.TXT.SBo'
 SBONEW=SBO+'.NEW'
 
 f = open(PKG)
+packages = []
+for line in f:
+    if line.startswith('PACKAGE NAME:'):
+        pkg = line.partition('PACKAGE NAME: ')[2].lstrip(' ').rpartition('-')[0].rpartition('-')[0].rpartition('-')[0]
+        packages.append(pkg)
+f.close()
+
+f = open(PKGEXTRA)
 packages = []
 for line in f:
     if line.startswith('PACKAGE NAME:'):
