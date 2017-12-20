@@ -341,6 +341,7 @@ tagpy: boost
 task: cmake
 tellico: cmake
 thinkfan: cmake
+tini: cmake
 tint2: cmake
 tome: cmake
 tophat: boost
