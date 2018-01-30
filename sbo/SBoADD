@@ -126,6 +126,7 @@ glestae: cmake
 glm: cmake
 glob2: boost
 gnash: boost
+gnome-disk-utility: linuxdoc-tools
 gnuradio: cmake
 gplcver: cmake
 gthumb: itstool
