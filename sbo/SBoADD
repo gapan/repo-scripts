@@ -373,7 +373,7 @@ x265: cmake
 xbmc: cmake
 xboxdrv-linux: boost
 xfce4-whiskermenu-plugin: cmake
-xiphos: linuxdoc-tools
+xiphos: linuxdoc-tools,webkitgtk3,biblesync
 xtrkcad: cmake
 yabause: cmake
 yagf: cmake
