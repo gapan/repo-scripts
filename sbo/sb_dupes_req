@@ -26,7 +26,6 @@ for line in f:
 f.close()
 
 f = open(PKGEXTRA)
-packages = []
 for line in f:
     if line.startswith('PACKAGE NAME:'):
         pkg = line.partition('PACKAGE NAME: ')[2].lstrip(' ').rpartition('-')[0].rpartition('-')[0].rpartition('-')[0]
@@ -51,6 +50,7 @@ for line in f:
     pkg = line.partition(':')[0].strip(' ')
     packages.append(pkg)
 f.close()
+
 
 f = open(SBO)
 fn = open(SBONEW, 'w')
