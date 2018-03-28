@@ -141,6 +141,7 @@ hiawatha: cmake
 homerun: cmake
 horao: cmake
 hugin: cmake,exiv2,swig
+i3: xcb-util-cursor,perl-AnyEvent-HTTP
 ibus-chewing: cmake
 ibus-qt: cmake
 ibus-sunpinyin: cmake
