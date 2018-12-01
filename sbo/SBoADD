@@ -117,6 +117,7 @@ freeorion: cmake
 freerdp: cmake
 frogatto: boost
 gammu: cmake
+gbrainy: mono,gtk-sharp
 gcdemu: cmake
 gedit: linuxdoc-tools
 gemrb: cmake
@@ -127,6 +128,7 @@ glm: cmake
 glob2: boost
 gnash: boost
 gnome-disk-utility: linuxdoc-tools
+gnome-sharp: gtk-sharp
 gnuradio: cmake
 gplcver: cmake
 gthumb: itstool
@@ -228,6 +230,7 @@ minitube: qt
 mkvtoolnix: boost
 mlt: swig
 modules: cmake
+mono-addins: mono
 mosquitto: cmake
 mppenc: cmake
 muse: cmake
