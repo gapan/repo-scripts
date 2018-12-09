@@ -65,6 +65,7 @@ choqok: cmake,kdelibs,automoc4,qjson,linuxdoc-tools
 chromaprint: cmake
 chromium: yasm
 clamav: sendmail
+clamtk: perl-http-date,perl-net-http,perl-IO-Socket-SSL
 clementine: cmake
 collada-dom: cmake
 compizconfig-backend-kconfig4: cmake
