@@ -259,6 +259,7 @@ otter: cmake
 owncloud-client: cmake
 oxygen-transparent: cmake
 pdal: cmake
+pdfshuffler: pypoppler,pyPDF
 percona-xtrabackup: cmake
 perl-goo-canvas: perl-pango
 pgrouting: cmake
