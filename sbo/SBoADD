@@ -261,6 +261,7 @@ oxygen-transparent: cmake
 pdal: cmake
 pdfshuffler: pypoppler,pyPDF
 percona-xtrabackup: cmake
+perl-LWP-Protocol-socks: perl-net-http,Net-SSLeay
 perl-goo-canvas: perl-pango
 pgrouting: cmake
 photoqt: cmake
