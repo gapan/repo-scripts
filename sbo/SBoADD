@@ -321,6 +321,7 @@ scribus: cmake
 shake: cmake
 share: cmake
 shiboken: cmake
+shutter: perl-Test-Pod,perl-Test-Pod-Coverage,perl-gnome2-canvas,perl-gnome2-vfs,perl-xml-twig
 sigil: cmake
 simon: cmake
 skrooge: cmake
