@@ -259,6 +259,7 @@ otter: cmake
 owncloud-client: cmake
 oxygen-transparent: cmake
 pdal: cmake
+pdfsam: openjdk
 pdfshuffler: pypoppler,pyPDF
 percona-xtrabackup: cmake
 perl-LWP-Protocol-socks: perl-net-http,Net-SSLeay
@@ -267,6 +268,7 @@ pgrouting: cmake
 photoqt: cmake
 physfs: cmake
 pianobooster: cmake
+pinta: mono
 plasma-applet-daisy: cmake
 plasma-runner-browsefirefoxbookmarks: cmake
 plasma-widget-menubar: cmake
