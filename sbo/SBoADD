@@ -358,6 +358,7 @@ tome: cmake
 tophat: boost
 trojita: cmake
 uhd: cmake
+unetbootin: qt
 unvanquished: cmake
 urbanlightscape: boost
 usbmuxd: cmake
