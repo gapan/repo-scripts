@@ -253,6 +253,7 @@ openclonk: boost,cmake
 opencv: cmake
 openjpeg: cmake
 openlierox: cmake
+openoffice.org: rpm
 osgEarth: cmake
 osm2pgrouting: cmake
 otter: cmake
