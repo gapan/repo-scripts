@@ -368,6 +368,7 @@ vbam: cmake
 vbox-runner: cmake
 vcmi: cmake
 vidalia: cmake
+videocut: qmake,xine-lib
 vigra: cmake
 virtualbox: libvncserver
 vmpk: cmake
