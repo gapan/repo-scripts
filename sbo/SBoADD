@@ -259,6 +259,7 @@ osm2pgrouting: cmake
 otter: cmake
 owncloud-client: cmake
 oxygen-transparent: cmake
+packagekit: bash-completion
 pdal: cmake
 pdfsam: openjdk
 pdfshuffler: pypoppler,pyPDF
