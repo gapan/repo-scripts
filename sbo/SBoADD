@@ -110,6 +110,7 @@ flare: cmake
 flashqard: cmake
 fluidsynth: cmake
 fmit: cmake
+font-manager: gucharmap,itstool
 fontmatrix: cmake, m17n-lib
 fpc: cmake
 fqterm: cmake
