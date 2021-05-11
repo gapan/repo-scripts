@@ -348,7 +348,7 @@ subtitlecomposer: cmake
 subtitleripper: cmake
 sumwars: boost,cmake
 supertux2: cmake
-supertuxkart: cmake
+supertuxkart: cmake,SDL2
 swun: cmake
 tagainijisho: cmake
 tagpy: boost
