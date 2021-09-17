@@ -33,6 +33,7 @@ akonadi-googledata: cmake
 allegro: cmake
 alure: cmake
 andromeda: cmake
+anydesk: rpm
 apiextractor: cmake
 appmenu-qt: cmake
 apulse: cmake
@@ -387,6 +388,7 @@ wormblast: cmake
 x265: cmake
 xbmc: cmake
 xboxdrv-linux: boost
+xdotool: doxygen
 xfce4-whiskermenu-plugin: cmake
 xiphos: linuxdoc-tools,webkitgtk3,biblesync
 xtrkcad: cmake
