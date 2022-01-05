@@ -52,6 +52,10 @@ function gen_packages_txt {
 	cat PACKAGES.TXT | gzip -9 -c - > PACKAGES.TXT.gz
 }
 
+function comma_deps {
+	cat $1 | tr '\n' ',' | tr -s ',' | sed "s/,$//"
+}
+
 function gen_meta {
 	unset REQUIRED CONFLICTS SUGGESTS
 	if [ ! -f $1 ]; then
@@ -76,15 +80,15 @@ function gen_meta {
 	
 	if test -f $LOCATION/${NAME%t[glx]z}dep
 	then
-		REQUIRED="`cat $LOCATION/${NAME%t[glx]z}dep`"
+		REQUIRED="`comma_deps $LOCATION/${NAME%t[glx]z}dep`"
 	fi
 	if test -f $LOCATION/${NAME%t[glx]z}con
 	then
-		CONFLICTS="`cat $LOCATION/${NAME%t[glx]z}con`"
+		CONFLICTS="`comma_deps $LOCATION/${NAME%t[glx]z}con`"
 	fi
 	if test -f $LOCATION/${NAME%t[glx]z}sug
 	then
-		SUGGESTS="`cat $LOCATION/${NAME%t[glx]z}sug`"
+		SUGGESTS="`comma_deps $LOCATION/${NAME%t[glx]z}sug`"
 	fi
 	echo "PACKAGE NAME:  $NAME" > $LOCATION/$METAFILE
 	if [ -n "$DL_URL" ]; then
