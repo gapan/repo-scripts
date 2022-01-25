@@ -42,6 +42,10 @@ DEPSDIR="$CWD/deps"
 
 par=$1
 
+function comma_deps {
+	cat $1 | tr '\n' ',' | tr -s ',' | sed "s/,$//"
+}
+
 update_packages_txt() {
 rm -f .CHECKSUMS.md5.new
 wget $SLACKREPO/$SUBDIR/CHECKSUMS.md5 -O .CHECKSUMS.md5.new || exit 1
@@ -61,17 +65,17 @@ if [[ ! `diff CHECKSUMS.md5 .CHECKSUMS.md5.new` = "" ]] || [[ "$par" = "-f" ]] ;
 		echo -n "."
 		PKGNAME=`echo $i | sed "s/\(.*\)-\(.*\)-\(.*\)-\(.*\).t[gx]z/\1/"`
 		if [ -f $DEPSDIR/$PKGNAME.dep ]; then
-			DEPS=`cat $DEPSDIR/$PKGNAME.dep`
+			DEPS=`comma_deps $DEPSDIR/$PKGNAME.dep`
 		else
 			DEPS=""
 		fi
 		if [ -f $DEPSDIR/$PKGNAME.con ]; then
-		CONFLICTS=`cat $DEPSDIR/$PKGNAME.con`
+		CONFLICTS=`comma_deps $DEPSDIR/$PKGNAME.con`
 		else
 			CONFLICTS=""
 		fi
 		if [ -f $DEPSDIR/$PKGNAME.sug ]; then
-			SUGGESTS=`cat $DEPSDIR/$PKGNAME.sug`
+			SUGGESTS=`comma_deps $DEPSDIR/$PKGNAME.sug`
 		else
 			SUGGESTS=""
 		fi
