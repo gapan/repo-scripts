@@ -51,6 +51,7 @@ biblesync: cmake
 bibletime: cmake
 bitfighter: cmake
 blas: doxygen
+blobby2: boost
 blobby2: cmake
 bmpanel2: cmake
 brewtarget: cmake
@@ -68,6 +69,7 @@ chromium: yasm
 clamav: sendmail
 clamtk: perl-http-date,perl-net-http,perl-IO-Socket-SSL
 clementine: cmake
+cmake-202x: lzip
 collada-dom: cmake
 compizconfig-backend-kconfig4: cmake
 converseen: cmake
@@ -193,6 +195,7 @@ kpartsplugin: cmake
 kphotoalbum: cmake
 kradio: cmake
 krename: cmake
+kronometer: linuxdoc-tools,oxygen-icons
 krusader: cmake
 ktikz: cmake
 kuickshow: cmake
@@ -221,6 +224,7 @@ luminance-hdr: cmake
 lurc: cmake
 luxrender: cmake
 lyx: bc
+m64py: PyQt
 mars: cmake
 mathgl: cmake
 mcrl2: cmake
