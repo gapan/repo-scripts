@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SLACKREPO="rsync://slackware.uk/slackware/slackware-14.2"
+SLACKREPO="rsync://slackware.uk/slackware/slackware-15.0"
 
 EXCLUDE=" arts k3b3 kdelibs3 qca-tls1 qca1 qt3 tightvnc "
 
