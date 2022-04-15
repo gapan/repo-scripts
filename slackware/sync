@@ -10,11 +10,14 @@ DEPSDIR="$CWD/deps"
 
 par=$1
 
+function comma_deps {
+	cat $1 | tr '\n' ',' | tr -s ',' | sed "s/,$//"
+}
+
 update_packages_txt() {
 if [ -z $SUBDIR ]; then
 	rsync --no-motd -aqz --delete \
 		--exclude .sync --exclude deps \
-		--exclude kernels \
 		--exclude usb-and-pxe-installers \
 		--exclude CHECKSUMS.md5 --exclude CHECKSUMS.md5.asc \
 		--exclude PACKAGES.json \
