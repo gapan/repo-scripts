@@ -164,7 +164,7 @@ kde-gtk-config: cmake
 kde-networkmanagement-openconnect: cmake
 kde_cdemu: cmake
 kdeconnect: cmake
-kdenlive: cmake
+kdenlive: cmake,linuxdoc-tools,qjson,automoc4,kdelibs
 kdesvn: cmake
 kdiff3: cmake
 kicad-doc: cmake
